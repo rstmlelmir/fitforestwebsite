@@ -31,6 +31,84 @@ const features = [
   ['user', 'Trainer və tələbə', 'Trainerlərlə plan paylaşımı və izləmə üçün rahat sistem.'],
 ] as const
 
+const privacySections = [
+  {
+    title: 'Toplanan məlumatlar',
+    content: <>
+      <p>FitForest xidmətlərindən istifadə zamanı aşağıdakı məlumatlar toplana bilər:</p>
+      <ul><li>ad;</li><li>email ünvanı;</li><li>yaş;</li><li>cinsiyyət;</li><li>boy;</li><li>çəki;</li><li>fitness məqsədi;</li><li>məşq tarixçəsi;</li><li>aktivlik məlumatları;</li><li>qidalanma və yemək qeydləri;</li><li>kalori və makro hədəfləri;</li><li>trainer tərəfindən verilən planlar;</li><li>autentifikasiya və hesab məlumatları.</li></ul>
+    </>,
+  },
+  {
+    title: 'Məlumatlardan istifadə məqsədi',
+    content: <ul><li>istifadəçi hesabını yaratmaq və idarə etmək;</li><li>login və autentifikasiya;</li><li>məşq və qidalanma funksiyalarını təqdim etmək;</li><li>proqres göstəricilərini hesablamaq;</li><li>trainer və tələbə planlarını əlaqələndirmək;</li><li>təhlükəsizlik və texniki problemlərin idarə edilməsi.</li></ul>,
+  },
+  {
+    title: 'Google hesab məlumatları',
+    content: <>
+      <p>Google ilə giriş zamanı FitForest hesab yaratmaq və istifadəçini autentifikasiya etmək üçün Google hesabına bağlı əsas məlumatlardan, məsələn ad, email və hesab identifikatorundan istifadə edə bilər. FitForest Gmail, Google Drive, Google Contacts və digər Google xidmətlərinə giriş istəmir.</p>
+      <p>Google məlumatları reklam üçün istifadə edilmir və satılmır. FitForest Google Drive-a, Gmail məzmununa və Google Contacts-a giriş etmir. Google məlumatları yalnız login və hesab yaratmaq məqsədilə istifadə olunur.</p>
+    </>,
+  },
+  {
+    title: 'Məlumatların saxlanması və silinməsi',
+    content: <p>Məlumatlar Supabase autentifikasiya və verilənlər bazası xidmətlərində saxlanıla bilər. İstifadəçi məlumatlarının silinməsini və ya hesabının bağlanmasını tələb edə bilər. Bunun üçün <a href="mailto:contact@fitforestapp.com">contact@fitforestapp.com</a> ünvanına müraciət etmək kifayətdir.</p>,
+  },
+  {
+    title: 'İstifadəçi hüquqları',
+    content: <ul><li>məlumatlara çıxış;</li><li>məlumatların düzəldilməsi;</li><li>məlumatların silinməsi;</li><li>hesabın bağlanması;</li><li>Google hesabı ilə giriş icazəsinin geri götürülməsi.</li></ul>,
+  },
+  {
+    title: 'Məlumatların qorunması',
+    content: <p>FitForest məlumatların qorunması üçün giriş nəzarəti, autentifikasiya mexanizmləri və uyğun texniki tədbirlər tətbiq etməyə çalışır. Bununla belə, internet üzərindən ötürülən və saxlanılan məlumatların tam təhlükəsizliyinə zəmanət verilə bilməz.</p>,
+  },
+  {
+    title: 'Üçüncü tərəflərlə məlumat paylaşılması',
+    content: <p>Məlumatlar yalnız xidmətin işləməsi, autentifikasiya, verilənlər bazası və texniki infrastrukturun təmin edilməsi üçün zəruri olan xidmət təminatçıları ilə, tətbiq olunan qanunvericiliyə uyğun şəkildə paylaşıla bilər. Məlumatlar reklam məqsədilə satılmır.</p>,
+  },
+  {
+    title: 'Privacy Policy dəyişiklikləri',
+    content: <p>Bu Privacy Policy zaman-zaman yenilənə bilər. Dəyişikliklər bu səhifədə dərc edildiyi andan qüvvəyə minir. Səhifəni vaxtaşırı nəzərdən keçirməyiniz tövsiyə olunur.</p>,
+  },
+  {
+    title: 'Əlaqə',
+    content: <p>Bu siyasətlə bağlı suallarınız üçün <a href="mailto:contact@fitforestapp.com">contact@fitforestapp.com</a> ünvanına yaza bilərsiniz.</p>,
+  },
+] as const
+
+const termsSections = [
+  ['Xidmətin təsviri', 'FitForest məşq, qidalanma, aktivlik və proqres məlumatlarını idarə etməyə kömək edən fitness tətbiqidir.'],
+  ['Hesab yaratma', 'Xidmətdən istifadə üçün hesab yaratmalı və qeydiyyat zamanı düzgün, aktual məlumat təqdim etməlisiniz.'],
+  ['İstifadəçi hesabının təhlükəsizliyi', 'Hesab giriş məlumatlarınızın məxfiliyinə görə məsuliyyət daşıyırsınız. Hesabınızda icazəsiz fəaliyyət gördükdə dərhal bizə bildirin.'],
+  ['Google ilə giriş', 'Google ilə giriş seçdikdə hesab yaratmaq və autentifikasiya üçün Google hesabına bağlı əsas məlumatlardan istifadə oluna bilər. FitForest Gmail, Google Drive və Google Contacts-a giriş istəmir.'],
+  ['İstifadəçinin məsuliyyətləri', 'Tətbiqdən qanuni məqsədlərlə istifadə etməli, hesabınızı başqalarına ötürməməli və xidmətin işinə mane olmamalısınız.'],
+  ['Məşq və qidalanma məlumatları', 'Tətbiqdəki məşq və qidalanma məlumatları ümumi məlumat xarakterlidir. Fərdi sağlamlıq vəziyyətinizi nəzərə alan qərarlar üçün uyğun mütəxəssislə məsləhətləşin.'],
+  ['Tibbi xidmət deyil', 'FitForest tibbi məsləhət, diaqnostika və ya müalicə xidməti deyil. Tətbiq tibbi mütəxəssisi əvəz etmir.'],
+  ['Trainer tərəfindən verilən planlar', 'Trainer tərəfindən təqdim edilən planlar trainerin məsuliyyətində olan məzmun kimi təqdim olunur. Bu planlardan istifadə edərkən öz sağlamlıq və təhlükəsizlik vəziyyətinizi nəzərə almalısınız.'],
+  ['Qadağan olunmuş istifadə', 'Xidmətdən qanunsuz, zərərli, aldadıcı məqsədlərlə, başqalarının hesablarına icazəsiz giriş üçün və ya sistemin təhlükəsizliyini pozacaq şəkildə istifadə etmək qadağandır.'],
+  ['Hesabın dayandırılması', 'Bu şərtlərin pozulması və ya təhlükəsizlik riski yarandıqda hesabı dayandıra və ya bağlaya bilərik. Siz də hesabınızı bağlamaq üçün contact@fitforestapp.com ünvanına müraciət edə bilərsiniz.'],
+  ['İntellektual mülkiyyət', 'FitForest adı, dizaynı, proqram təminatı və xidmətə aid materiallar müvafiq hüquqlarla qorunur. Yazılı icazə olmadan kopyalamaq və ya kommersiya məqsədilə istifadə etmək olmaz.'],
+  ['Xidmətin dəyişdirilməsi', 'FitForest funksiyaları, məzmunu və əlçatanlığı əvvəlcədən xəbərdarlıq edilməklə və ya edilmədən dəyişdirilə bilər.'],
+  ['Məsuliyyətin məhdudlaşdırılması', 'FitForest qanunla icazə verilən maksimum həddə xidmətin istifadəsindən yaranan dolayı itkilərə və tibbi nəticələrə görə məsuliyyət daşımır. Xidmət “olduğu kimi” təqdim edilir.'],
+  ['Hüquqi sənədlərdə dəyişikliklər', 'Bu Terms of Service və digər hüquqi sənədlər yenilənə bilər. Yenilənmiş mətn bu səhifədə dərc edildiyi andan qüvvəyə minir.'],
+  ['Əlaqə', 'Suallarınız üçün contact@fitforestapp.com ünvanı ilə əlaqə saxlaya bilərsiniz.'],
+] as const
+
+function LegalPage({ type }: { type: 'privacy' | 'terms' }) {
+  const isPrivacy = type === 'privacy'
+  return <div className="legal-shell">
+    <header className="header legal-header"><a className="brand" href="/"><img src="/fitforest-text-logo-white.png" alt="FitForest" /></a><a className="legal-home" href="/">Ana səhifəyə qayıt <Icon name="arrow" /></a></header>
+    <main className="legal-main">
+      <p className="eyebrow">FITFOREST · HÜQUQİ MƏLUMATLAR</p>
+      <h1>{isPrivacy ? 'Məxfilik siyasəti' : 'İstifadə şərtləri'}</h1>
+      <p className="legal-intro">{isPrivacy ? 'FitForest məlumatlarınızın necə toplandığını, istifadə edildiyini və qorunduğunu aydın şəkildə izah edir.' : 'FitForest xidmətindən istifadə etməklə aşağıdakı şərtlərlə razılaşmış olursunuz.'}</p>
+      <div className="legal-content">{isPrivacy ? privacySections.map((section) => <section key={section.title}><h2>{section.title}</h2>{section.content}</section>) : termsSections.map(([title, content]) => <section key={title}><h2>{title}</h2><p>{content}</p></section>)}</div>
+      {isPrivacy && <p className="legal-updated">Son yenilənmə tarixi: 13 sentyabr 2026</p>}
+    </main>
+    <footer className="legal-footer"><span>© 2026 FitForest</span><a href="mailto:contact@fitforestapp.com">contact@fitforestapp.com</a></footer>
+  </div>
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const closeMenu = () => setMenuOpen(false)
@@ -78,8 +156,15 @@ function App() {
 
       <section className="final-cta section" data-reveal><div className="cta-orbit orbit-one" /><div className="cta-orbit orbit-two" /><p className="eyebrow">Bu gün başla</p><h2>Öz dəyişiminə<br /><em>yer aç.</em></h2><p>Birinci addım kiçik ola bilər. Əsas odur ki, sənə aid olsun.</p><a className="button button-light" href={APP_URL}>Tətbiqə daxil ol <Icon name="arrow" /></a></section>
     </main>
-    <footer className="footer"><div className="footer-main"><a className="brand" href="#top"><img src="/fitforest-text-logo-white.png" alt="FitForest" /></a><p>Gündəlik gücün üçün daha aydın yol.</p><a className="footer-cta" href={APP_URL}>PWA-ya keçid <Icon name="arrow" /></a></div><div className="footer-bottom"><span>© 2026 FitForest</span><div><a href="#trust">Məxfilik siyasəti</a><a href="#trust">İstifadə şərtləri</a><a href="mailto:hello@fitforestapp.com">hello@fitforestapp.com</a></div></div></footer>
+    <footer className="footer"><div className="footer-main"><a className="brand" href="#top"><img src="/fitforest-text-logo-white.png" alt="FitForest" /></a><p>Gündəlik gücün üçün daha aydın yol.</p><a className="footer-cta" href={APP_URL}>PWA-ya keçid <Icon name="arrow" /></a></div><div className="footer-bottom"><span>© 2026 FitForest</span><div><a href="/legal/privacy">Məxfilik siyasəti</a><a href="/legal/terms">İstifadə şərtləri</a><a href="mailto:contact@fitforestapp.com">contact@fitforestapp.com</a></div></div></footer>
   </div>
 }
 
-export default App
+function Root() {
+  const path = window.location.pathname.replace(/\/$/, '')
+  if (path === '/legal/privacy') return <LegalPage type="privacy" />
+  if (path === '/legal/terms') return <LegalPage type="terms" />
+  return <App />
+}
+
+export default Root
